@@ -1,1 +1,1 @@
-Update to CICD in github
+Verify whether trigger actions automatically
