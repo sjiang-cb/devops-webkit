@@ -1,1 +1,1 @@
-How to CICD in github
+Update to CICD in github
