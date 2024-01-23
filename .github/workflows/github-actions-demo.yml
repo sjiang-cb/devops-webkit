@@ -1,5 +1,8 @@
 name: 'Were only docs updated'
 on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
 inputs:
   commit-range:
     description: 'commit range'
