@@ -15,9 +15,9 @@ runs:
       run: |
         echo "commit range: ${{ inputs.commit-range }}"
         git diff --name-only ${{ inputs.commit-range }} | grep -qvE '(\.md$)|(^(docs|g11n-ws/docs))/' || {
-          echo "::set-output name=were-only-docs-updated::yes"
-          echo "were-only-docs-updated: yes."
+          echo "were-only-docs-updated=yes" >> $GITHUB_OUTPUT
+          echo "were-only-docs-updated: ${were-only-docs-updated}"
           exit
         }
-        echo "::set-output name=were-only-docs-updated::no"
+        echo "were-only-docs-updated=no" >> $GITHUB_OUTPUT
         echo "were-only-docs-updated: no."

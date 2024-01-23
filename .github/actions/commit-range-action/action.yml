@@ -20,5 +20,5 @@ runs:
           MERGE_COMMIT_RANGE=$(git log -n 1 | sed -n 2p | sed 's/Merge: //')
           COMMIT_RANGE="${MERGE_COMMIT_RANGE}"
         fi
-        echo "::set-output name=commit-range::$(echo $COMMIT_RANGE)"
+        echo "commit-range=${COMMIT_RANGE}" >> $GITHUB_OUTPUT
         echo 'The commit id range is' ${COMMIT_RANGE}
