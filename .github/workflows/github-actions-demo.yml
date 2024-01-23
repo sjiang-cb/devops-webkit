@@ -1,4 +1,5 @@
 name: 'Were only docs updated'
+on: [push]
 inputs:
   commit-range:
     description: 'commit range'
