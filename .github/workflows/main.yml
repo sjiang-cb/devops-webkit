@@ -1,0 +1,20 @@
+name: Singleton g11n-js-client CI
+
+on:
+  [push]
+jobs:
+  pre-process:
+    name: Pre process
+    runs-on: ubuntu-latest
+    outputs: 
+      docs-updated: ${{ steps.docs-updated-action.outputs.were-only-docs-updated }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2.
+      - name: Were only docs updated
+        id: docs-updated-action
+        uses: ./.github/actions/docs-updated-action
+        with:
+          commit-range: ${{ steps.get-commit-range-action.outputs.commit-range }}
