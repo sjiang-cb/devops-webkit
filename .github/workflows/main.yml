@@ -1,20 +1,20 @@
-name: Singleton g11n-js-client CI
+name: Hi Mascot
+on: push
+env:
+  mascot: Mona
+  super_duper_var: totally_awesome
 
-on:
-  [push]
 jobs:
-  pre-process:
-    name: Pre process
-    runs-on: ubuntu-latest
-    outputs: 
-      docs-updated: ${{ steps.docs-updated-action.outputs.were-only-docs-updated }}
+  windows_job:
+    runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2.
-      - name: Were only docs updated
-        id: docs-updated-action
-        uses: ./.github/actions/docs-update-action
-        with:
-          commit-range: ${{ steps.get-commit-range-action.outputs.commit-range }}
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
+        env:
+          mascot: Octocat
+  linux_job:
+    runs-on: ubuntu-latest
+    env:
+      mascot: Tux
+    steps:
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
