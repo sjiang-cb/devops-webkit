@@ -1,4 +1,4 @@
-name: Hi Mascot
+name: Context
 on: push
 env:
   mascot: Mona
@@ -17,4 +17,4 @@ jobs:
     env:
       mascot: Tux
     steps:
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
+      - run: echo 'Hi ${{ env.mascot }} in Job Status ${{ job.status }}'  # Hi Tux
